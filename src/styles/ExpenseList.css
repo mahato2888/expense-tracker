@@ -1,0 +1,207 @@
+.expense-list-container h2 {
+  color: #00ffff;
+  margin-bottom: 25px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.8rem;
+  text-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+  letter-spacing: 2px;
+}
+
+.expense-list {
+  max-height: 550px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.no-expenses {
+  text-align: center;
+  color: rgba(0, 255, 255, 0.5);
+  padding: 60px 20px;
+  font-size: 1.2rem;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+/* 3D Glassmorphic Expense Items */
+.expense-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  border-radius: 18px;
+  border-left: 4px solid #00ffff;
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.expense-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.expense-item:hover::before {
+  left: 100%;
+}
+
+.expense-item:hover {
+  transform: translateX(10px) translateY(-2px);
+  box-shadow: 
+    0 10px 40px rgba(0, 255, 255, 0.3),
+    inset 0 0 20px rgba(0, 255, 255, 0.1);
+  border-color: #00ffff;
+}
+
+.expense-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 1;
+}
+
+.expense-description {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #ffffff;
+  font-family: 'Rajdhani', sans-serif;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.expense-category {
+  font-size: 0.9rem;
+  padding: 5px 15px;
+  border-radius: 20px;
+  width: fit-content;
+  font-weight: 700;
+  font-family: 'Orbitron', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 1px solid;
+  backdrop-filter: blur(10px);
+}
+
+.category-food { 
+  background: rgba(255, 99, 132, 0.2); 
+  color: #ff6384;
+  border-color: #ff6384;
+  box-shadow: 0 0 15px rgba(255, 99, 132, 0.3);
+}
+.category-transport { 
+  background: rgba(54, 162, 235, 0.2); 
+  color: #36a2eb;
+  border-color: #36a2eb;
+  box-shadow: 0 0 15px rgba(54, 162, 235, 0.3);
+}
+.category-entertainment { 
+  background: rgba(255, 206, 86, 0.2); 
+  color: #ffce56;
+  border-color: #ffce56;
+  box-shadow: 0 0 15px rgba(255, 206, 86, 0.3);
+}
+.category-bills { 
+  background: rgba(75, 192, 192, 0.2); 
+  color: #4bc0c0;
+  border-color: #4bc0c0;
+  box-shadow: 0 0 15px rgba(75, 192, 192, 0.3);
+}
+.category-shopping { 
+  background: rgba(153, 102, 255, 0.2); 
+  color: #9966ff;
+  border-color: #9966ff;
+  box-shadow: 0 0 15px rgba(153, 102, 255, 0.3);
+}
+.category-health { 
+  background: rgba(255, 99, 132, 0.2); 
+  color: #ff6384;
+  border-color: #ff6384;
+  box-shadow: 0 0 15px rgba(255, 99, 132, 0.3);
+}
+.category-other { 
+  background: rgba(201, 203, 207, 0.2); 
+  color: #c9cbcf;
+  border-color: #c9cbcf;
+  box-shadow: 0 0 15px rgba(201, 203, 207, 0.3);
+}
+
+.expense-amount-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  z-index: 1;
+}
+
+.expense-amount {
+  font-size: 1.5rem;
+  font-weight: 900;
+  font-family: 'Orbitron', sans-serif;
+  background: linear-gradient(135deg, #00ffff, #ff00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+.expense-date {
+  font-size: 0.9rem;
+  color: rgba(0, 255, 255, 0.7);
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+}
+
+/* Holographic Delete Button */
+.delete-btn {
+  padding: 8px 16px;
+  background: rgba(255, 0, 100, 0.2);
+  color: #ff0066;
+  border: 2px solid #ff0066;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 700;
+  font-family: 'Orbitron', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.delete-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 0, 100, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.4s, height 0.4s;
+}
+
+.delete-btn:hover::before {
+  width: 200px;
+  height: 200px;
+}
+
+.delete-btn:hover {
+  background: #ff0066;
+  color: #fff;
+  box-shadow: 0 0 25px rgba(255, 0, 100, 0.6);
+  transform: scale(1.05);
+}
+
+.delete-btn span {
+  position: relative;
+  z-index: 1;
+}

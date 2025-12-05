@@ -1,0 +1,444 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Rajdhani', sans-serif;
+  background: #0a0e27;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Animated Holographic Background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(ellipse at 20% 30%, rgba(0, 255, 255, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(255, 0, 255, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(0, 100, 255, 0.1) 0%, transparent 50%);
+  animation: holographicShift 20s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes holographicShift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-10%, 5%) scale(1.1); }
+  66% { transform: translate(10%, -5%) scale(0.9); }
+}
+
+/* Floating Particles */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 20% 30%, rgba(0, 255, 255, 0.4), transparent),
+    radial-gradient(2px 2px at 60% 70%, rgba(255, 0, 255, 0.4), transparent),
+    radial-gradient(2px 2px at 50% 50%, rgba(0, 200, 255, 0.4), transparent),
+    radial-gradient(2px 2px at 80% 10%, rgba(255, 255, 0, 0.4), transparent);
+  background-size: 200px 200px, 300px 300px, 250px 250px, 180px 180px;
+  animation: particleFloat 30s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes particleFloat {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-100px); }
+}
+
+.App {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Glassmorphic Header with Neon Glow */
+.app-header {
+  text-align: center;
+  color: white;
+  margin-bottom: 40px;
+  padding: 40px 30px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 8px 32px 0 rgba(31, 38, 135, 0.37),
+    inset 0 0 20px rgba(0, 255, 255, 0.1),
+    0 0 40px rgba(0, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  animation: headerGlow 3s ease-in-out infinite;
+}
+
+@keyframes headerGlow {
+  0%, 100% { box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37), 0 0 40px rgba(0, 255, 255, 0.3); }
+  50% { box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37), 0 0 60px rgba(255, 0, 255, 0.4); }
+}
+
+.app-header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(0, 255, 255, 0.1),
+    transparent
+  );
+  transform: rotate(45deg);
+  animation: scanLine 4s linear infinite;
+}
+
+@keyframes scanLine {
+  0% { transform: translateX(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) rotate(45deg); }
+}
+
+.app-header h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin-bottom: 10px;
+  background: linear-gradient(135deg, #00ffff, #ff00ff, #00ffff);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientText 4s ease infinite;
+  text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+  letter-spacing: 3px;
+}
+
+@keyframes gradientText {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.app-header p {
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+}
+
+.app-container {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+/* Glassmorphic Containers with 3D Effect */
+.left-section, .right-section {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 25px;
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 15px 50px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.left-section::before,
+.right-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 25px;
+  padding: 2px;
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.3), rgba(255, 0, 255, 0.3));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.left-section:hover::before,
+.right-section:hover::before {
+  opacity: 1;
+}
+
+.left-section:hover,
+.right-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 25px 70px rgba(0, 255, 255, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Holographic Summary Section */
+.summary-section {
+  margin-top: 30px;
+  padding: 25px;
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.15), rgba(255, 0, 255, 0.15));
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 10px 40px rgba(0, 255, 255, 0.2),
+    inset 0 0 20px rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.summary-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.period-toggle {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.period-toggle button {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid rgba(0, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.3);
+  color: #00ffff;
+  border-radius: 15px;
+  cursor: pointer;
+  font-weight: 700;
+  font-family: 'Orbitron', sans-serif;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.period-toggle button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(0, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.4s, height 0.4s;
+}
+
+.period-toggle button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.period-toggle button.active {
+  background: linear-gradient(135deg, #00ffff, #0088ff);
+  color: #000;
+  border-color: #00ffff;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.6), inset 0 0 10px rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.period-toggle button span {
+  position: relative;
+  z-index: 1;
+}
+
+.summary-container {
+  position: relative;
+  z-index: 1;
+}
+
+.summary-container h3 {
+  margin-bottom: 15px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.5rem;
+  text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+.summary-total {
+  font-size: 3rem;
+  font-weight: 900;
+  font-family: 'Orbitron', sans-serif;
+  text-shadow: 0 0 30px rgba(255, 0, 255, 0.7);
+  background: linear-gradient(135deg, #00ffff, #ff00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.summary-count {
+  font-size: 1.1rem;
+  opacity: 0.8;
+  margin-top: 5px;
+}
+
+/* Holographic Chart Container */
+.chart-container {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px) saturate(180%);
+  padding: 40px;
+  border-radius: 25px;
+  box-shadow: 
+    0 15px 50px rgba(0, 0, 0, 0.3),
+    inset 0 0 30px rgba(0, 255, 255, 0.1);
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.chart-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    transparent,
+    rgba(0, 255, 255, 0.1),
+    transparent 30%
+  );
+  animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+  100% { transform: rotate(360deg); }
+}
+
+.chart-container h3 {
+  font-family: 'Orbitron', sans-serif;
+  color: #00ffff;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  text-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+  position: relative;
+  z-index: 1;
+}
+
+.chart-container > div {
+  position: relative;
+  z-index: 1;
+}
+
+/* Futuristic Category Filter */
+.category-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.category-filter button {
+  padding: 10px 20px;
+  border: 2px solid rgba(0, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.3);
+  color: #00ffff;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 700;
+  font-family: 'Rajdhani', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.category-filter button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.category-filter button:hover::before {
+  left: 100%;
+}
+
+.category-filter button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(0, 255, 255, 0.4);
+}
+
+.category-filter button.active {
+  background: linear-gradient(135deg, #00ffff, #0088ff);
+  color: #000;
+  border-color: #00ffff;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .app-header h1 {
+    font-size: 2.5rem;
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #00ffff, #ff00ff);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #ff00ff, #00ffff);
+}
