@@ -29,7 +29,7 @@ LocalStorage API
 Getting Started
 bash
 # Clone repository
-git clone https://github.com/YOUR-USERNAME/expense-tracker.git
+git clone https://github.com/mahato2888/expense-tracker.git
 cd expense-tracker
 
 # Install dependencies
